@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+header img {
+    width: 60px;
+    height: 60px;
+}
+h1 {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    flex-grow: 1;
+}
+.order-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+}
+.order-card:hover {
+    transform: translateY(-10px);
+}
+.order-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.order-details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.order-details h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+.order-details p {
+    font-size: 18px;
+    color: #666;
+    margin: 0;
+}
+.order-description {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #666;
+}
+.order-button {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+.order-button:hover {
+    background-color: #555;
+}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/products.css') }}">
+    {% if title %}
+    <title>USTHB - {{ user.first_name }}</title>
+    {% else %}
+    <title>USTHB</title>
+    {% endif %}
+</head>
+<body>
+    {% block content %} {% endblock %}
+</body>
+</html>

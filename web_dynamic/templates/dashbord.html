@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/dashbord.css">
+    <title>Order Dashboard</title>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        <h1>{{ user.first_name }} {{ user.last_name}}</h1>
+    </header>
+
+    <div class="order-list">
+        {% for product in products %}
+        <div class="order-item">
+            <div class="order-details">
+                <h2>Product Name: {{ product.name }} ({{ product.ref }})</h2>
+                <p>Quantity: {{ order_details[product.id]['quantity'] }}</p>
+            </div>
+            <div class="order-status"> Status: {{ order_details[product.id]['status'] | join(', ') }}</div>
+        </div>
+        {% endfor %}
+
+        <!-- Add more order items as needed -->
+    </div>
+</body>
+</html>
