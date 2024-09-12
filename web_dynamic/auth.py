@@ -34,7 +34,6 @@ def signin():
         # Loop through users to find a matching email and password
         for user in users:
             if user and user.email == email and user.check_password(password):
-                print(user._password)
                 # Set the user ID in the session
                 session['user_id'] = str(user.id)  # Ensure user.id is stored as a string
                 

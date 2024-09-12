@@ -96,7 +96,6 @@ def dashbord_page():
                 'quantity': order.quentity,
                 'status': order.order_status.status
             })
-    print(order_details)
                
 
     return render_template('dashbord.html', user=user, products=products, order_details=order_details)

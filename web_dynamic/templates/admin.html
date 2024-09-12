@@ -39,30 +39,30 @@
     </section>
 
     <section id="product-list">
-        <h2>Product List</h2>
-        <div class="product-list">
-            <table class="product-table">
-                <thead>
-                    <tr>
-                        <th>Product ID</th>
-                        <th>Product Name</th>
-                        <th>Product Ref</th>
-                        <th>Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for product in products %}
-                    <tr>
-                        <td>{{ product.id }}</td>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.ref }}</td>
-                        <td>{{ product.quentity }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </section>
+    <h2>Product List</h2>
+    <div class="table-wrapper">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Ref</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td data-label="Product ID">{{ product.id }}</td>
+                    <td data-label="Product Name">{{ product.name }}</td>
+                    <td data-label="Product Ref">{{ product.ref }}</td>
+                    <td data-label="Quantity">{{ product.quentity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
 
     <section id="remove-product">
         <h2>Remove Product</h2>
@@ -75,7 +75,7 @@
     
     <section id="order-list">
         <h2>Order List</h2>
-        <div class="order-list">
+        <div class="table-wrapper">
             <table class="order-table">
                 <thead>
                     <tr>
@@ -90,18 +90,19 @@
                 <tbody>
                     {% for order in order_details.values() %}
                     <tr>
-                        <td>{{ order.user_fname }} {{ order.user_lname }}</td>
-                        <td>{{ order.order_id }}</td>
-                        <td>{{ order.product_name }}</td>
-                        <td>{{ order.product_ref }}</td>
-                        <td>{{ order.quantity }}</td>
-                        <td>{{ order.status }}</td>
+                        <td data-label="User">{{ order.user_fname }} {{ order.user_lname }}</td>
+                        <td data-label="Order ID">{{ order.order_id }}</td>
+                        <td data-label="Product Name">{{ order.product_name }}</td>
+                        <td data-label="Product Ref">{{ order.product_ref }}</td>
+                        <td data-label="Quantity">{{ order.quantity }}</td>
+                        <td data-label="Status">{{ order.status }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </section>
+    
     
 
     <section id="update-status">
