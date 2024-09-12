@@ -3,11 +3,5 @@ flask_cors
 flask_bcrypt
 sqlalchemy
 mysqlclient
-pep8
-
 python-dotenv
 pep8
-
-flask_wtf
-email_validator
-

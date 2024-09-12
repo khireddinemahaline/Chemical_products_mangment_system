@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -8,31 +9,13 @@ body {
     align-items: center;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* Container Width Adjustment */
+.container {
     width: 100%;
-    max-width: 1200px;
-    margin-bottom: 20px;
+    max-width: 80%; /* Ensure the site container takes 80% of the screen width */
 }
 
-
-.header-left img {
-    width: 50px;
-    height: 50px;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+/* Header Styles */
 header {
     display: flex;
     align-items: center;
@@ -56,6 +39,8 @@ header {
 h1 {
     font-size: 32px;
     color: #333;
+    text-align: center;
+    flex-grow: 1;
     margin: 0;
 }
 
@@ -79,14 +64,7 @@ h1 {
     background-color: #555;
 }
 
-h1 {
-    font-size: 32px;
-    color: #333;
-    text-align: center;
-    flex-grow: 1;
-    margin: 0;
-}
-
+/* Grid Styles */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -161,6 +139,59 @@ h1 {
     background-color: #555;
 }
 
+/* Flash Messages */
+.flash-message {
+    background-color: #f0c14b;
+    color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 16px;
+}
 
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+    }
 
-/* flash messages */
+    h1 {
+        font-size: 28px;
+    }
+
+    .dashboard-button {
+        padding: 8px 16px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* One column on phones */
+    }
+
+    header {
+        flex-direction: column; /* Stack header elements on small screens */
+        text-align: center;
+    }
+
+    .dashboard-button {
+        margin-top: 10px;
+    }
+
+    .card img {
+        max-height: 150px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+}

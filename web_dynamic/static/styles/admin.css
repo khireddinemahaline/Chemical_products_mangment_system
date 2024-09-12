@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -5,6 +6,7 @@ body {
     padding: 0;
 }
 
+/* Header */
 header {
     background-color: #333;
     color: #fff;
@@ -12,6 +14,7 @@ header {
     text-align: center;
 }
 
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -28,11 +31,12 @@ nav ul li a {
     text-decoration: none;
 }
 
+/* Section */
 section {
     background-color: #fff;
     margin: 20px auto;
     padding: 20px;
-    max-width:80%;
+    max-width: 80%; /* Set width to 80% for larger screens */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -40,13 +44,14 @@ h2 {
     margin-top: 0;
 }
 
+/* Form Styles */
 form label {
     display: block;
     margin: 10px 0 5px;
 }
 
 form input, form textarea, form select {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -63,8 +68,13 @@ form button:hover {
     background-color: #555;
 }
 
-/* Table Styling */
-.order-table {
+/* Responsive Table Styling */
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
@@ -72,68 +82,128 @@ form button:hover {
     text-align: left;
 }
 
-.order-table thead tr {
+thead {
     background-color: #009879;
     color: white;
-    text-align: left;
-    font-weight: bold;
 }
 
-.order-table th, .order-table td {
+th, td {
     padding: 12px 15px;
-}
-
-.order-table tbody tr {
     border-bottom: 1px solid #dddddd;
 }
 
-.order-table tbody tr:nth-of-type(even) {
+tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
-.order-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-
-.order-table tbody tr:hover {
+tbody tr:hover {
     background-color: #f1f1f1;
 }
 
+/* Mobile styles */
+@media (max-width: 768px) {
+    thead {
+        display: none;
+    }
+    
+    tbody, tr, td {
+        display: block;
+        width: 100%;
+    }
+    
+    tr {
+        margin-bottom: 15px;
+    }
+    
+    td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
 
-.product-table {
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    /* Adjust container width for tablets */
+    section {
+        max-width: 90%; /* Slightly reduce width on tablets */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+/* Default styling for desktop */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 16px;
-    text-align: left;
 }
 
-.product-table thead tr {
-    background-color: #009879;
-    color: white;
-    text-align: left;
-    font-weight: bold;
+/* Media query for tablets and phones */
+@media only screen and (max-width: 768px) {
+    body {
+        width: 100%;  /* Make body 100% for smaller screens */
+        padding: 0;   /* Remove padding */
+    }
+    section {
+        max-width: 100%;  /* Make sections full width */
+        margin: 10px 0;   /* Adjust margins for mobile view */
+        padding: 10px;
+    }
+
+    .product-table th, .product-table td, 
+    .order-table th, .order-table td {
+        padding: 2px 2px;  /* Reduce padding for smaller screens */
+    }
+
+    form, table {
+        width: 100%;  /* Ensure form and table use full width */
+    }
+
+    button {
+        padding: 8px 16px;  /* Adjust button size for better fit */
+    }
+
+    /* Adjust title and spacing */
+    h2 {
+        margin-bottom: 10px;  /* Reduce margin for headings */
+    }
 }
 
-.product-table th, .product-table td {
-    padding: 12px 15px;
-}
+/* For phones (even smaller screens) */
+@media only screen and (max-width: 480px) {
+    .product-table th, .product-table td, 
+    .order-table th, .order-table td {
+        font-size: 14px;  /* Make text smaller for better fit */
+    }
 
-.product-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
+    button {
+        padding: 6px 12px;  /* Adjust button padding further */
+    }
 
-.product-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    h2 {
+        font-size: 18px;  /* Smaller heading size */
+    }
 }
-
-.product-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-
-.product-table tbody tr:hover {
-    background-color: #f1f1f1;
-}
-
 
 
