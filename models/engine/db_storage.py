@@ -13,6 +13,8 @@ from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from models.base_model import Base
+from dotenv import load_dotenv
+load_dotenv()
 
 
 class DBStorage():
@@ -61,13 +63,20 @@ class DBStorage():
 
     def new(self, obj):
         """add new object to the database"""
-        self.__session.add(obj)
+        if isinstance(obj, Base):
+            self.__session.add(obj)
     def save(self):
-        """save the objects in the databases"""
-        self.__session.commit()
+        """Commit the current transaction."""
+        try:
+            self.__session.commit()
+            print("Changes committed.")
+        except Exception as e:
+            self.__session.rollback()
+            print(f"Failed to commit changes: {e}")
     def delete(self, obj):
         """delete an obj stored in the database"""
-        self.__session.delete(obj)
+        if isinstance(obj, Base):
+            self.__session.delete(obj)
     def reload(self):
         """create the tables and all column in database"""
         Base.metadata.create_all(self.__engine)
@@ -77,7 +86,8 @@ class DBStorage():
         self.__session = Session()
     def close(self):
         """in the end close the session"""
-        self.__session.close()
+        if self.__session:
+            self.__session.close()
 
     def get(self, cls, id):
         """

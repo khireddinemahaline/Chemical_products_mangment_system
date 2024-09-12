@@ -32,7 +32,7 @@ section {
     background-color: #fff;
     margin: 20px auto;
     padding: 20px;
-    max-width: 600px;
+    max-width:80%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -62,3 +62,78 @@ form button {
 form button:hover {
     background-color: #555;
 }
+
+/* Table Styling */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.order-table thead tr {
+    background-color: #009879;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.order-table th, .order-table td {
+    padding: 12px 15px;
+}
+
+.order-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.order-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.order-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.order-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.product-table thead tr {
+    background-color: #009879;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.product-table th, .product-table td {
+    padding: 12px 15px;
+}
+
+.product-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.product-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.product-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.product-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+

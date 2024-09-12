@@ -12,7 +12,7 @@
     </header>
 
     <div class="order-card">
-        <form action="{{ url_for('submit_order', product_id=product.id) }}" method="post">
+        <form action="{{ url_for('main.submit_order', product_id=product.id) }}" method="post">
             <img src="{{ url_for('static', filename='images/beaker, glass, 400ml.jpg') }}" alt="">
             <div class="order-details">
                 <h2>{{ product.name }}</h2>

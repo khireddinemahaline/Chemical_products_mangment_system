@@ -38,6 +38,43 @@ input[type="submit"] {
     font-size: 16px;
     cursor: pointer;
 }
-input[type="submit"]:hover {
-    background-color: #555;
+
+
+/* Style for the Sign In button */
+.sign-in-btn {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #333;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold; /* Makes the label text bold */
+    color: #333; /* Sets a dark color for the text */
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    font-size: 16px; /* Increase font size for better readability */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for better focus */
+}
+
+form select:focus {
+    border-color: #009879; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Increase shadow on focus */
 }

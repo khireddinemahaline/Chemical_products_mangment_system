@@ -41,3 +41,22 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #555;
 }
+
+
+/* Style for the Sign In button */
+.sign-in-btn {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sign-in-btn:hover {
+    background-color: #555;
+}

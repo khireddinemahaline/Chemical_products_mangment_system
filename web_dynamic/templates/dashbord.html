@@ -17,13 +17,20 @@
         <div class="order-item">
             <div class="order-details">
                 <h2>Product Name: {{ product.name }} ({{ product.ref }})</h2>
-                <p>Quantity: {{ order_details[product.id]['quantity'] }}</p>
+                <!-- Loop through all order details for this product -->
+                {% for detail in order_details[product.id] %}
+                    <div class="order-info">
+                        <p><strong>Quantity:</strong> {{ detail.quantity }}</p>
+                        <p><strong>Status:</strong> 
+                            <span class="{{ detail.status | lower }}">{{ detail.status }}</span>
+                        </p>
+                    </div>
+                {% endfor %}
             </div>
-            <div class="order-status"> Status: {{ order_details[product.id]['status'] | join(', ') }}</div>
         </div>
         {% endfor %}
-
-        <!-- Add more order items as needed -->
     </div>
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../static/script/order.js"></script>
 </html>

@@ -19,12 +19,13 @@ from sqlalchemy import Column, String, Integer
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
 
+
 class Product(BaseModel, Base):
     """Product Table Data"""
-    __tablename__ = 'products'  
+    __tablename__ = 'products'
     name = Column(String(255), nullable=False)
-    ref = Column(String(255), nullable=False)
+    ref = Column(String(255), nullable=False, unique=True)
     description = Column(String(2094), nullable=False)
-    quentity = Column(Integer, default=0, nullable=False)
-    orders = relationship("Order", backref='order', uselist=False, cascade="all, delete")
-
+    quentity = Column(Integer, default=1, nullable=False)
+    orders = relationship("Order", backref='order', uselist=False,
+                          cascade="all, delete")

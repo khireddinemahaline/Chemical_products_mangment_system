@@ -1,12 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
+<!-- Flash Messages Section -->
+{% include 'flash.html' %}
 <header>
     <div class="header-left">
         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
     </div>
     <h1>{{ user.first_name }} {{ user.last_name}}</h1>
     <div class="header-right">
-        <a href="{{ url_for('dashbord_page')}}" class="dashboard-button">Dashboard</a>
+        <a href="{{ url_for('main.dashbord_page')}}" class="dashboard-button">Dashboard</a>
     </div>
 </header>
 <div class="grid-container">
@@ -23,7 +25,7 @@
             <span class="value">{{ product.ref }}</span>
         </div>
         <p>{{ product.description }}</p>
-        <a href="{{ url_for('order_page', product_id=product.id) }}"><button>Order</button></a>
+        <a href="{{ url_for('main.order_page', product_id=product.id) }}"><button>Order</button></a>
     </div>
     {% endfor %}
 </div>

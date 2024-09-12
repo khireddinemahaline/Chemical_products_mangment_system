@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/styles/admin.css">
 </head>
 <body>
+    {% include 'flash.html' %}
     <header>
         <h1>Admin Panel</h1>
         <nav>
@@ -20,7 +21,7 @@
 
     <section id="add-product">
         <h2>Add New Product</h2>
-        <form action="{{ url_for('manager_page') }}" method="post"  id="addProductForm">
+        <form action="{{ url_for('admin.manager_page') }}" method="post"  id="addProductForm">
             <label for="name">Product Name:</label>
             <input type="text" id="name" name="name" required>
             
@@ -37,6 +38,32 @@
         </form>
     </section>
 
+    <section id="product-list">
+        <h2>Product List</h2>
+        <div class="product-list">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Product Ref</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.ref }}</td>
+                        <td>{{ product.quentity }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <section id="remove-product">
         <h2>Remove Product</h2>
         <form id="remove_product" action="" method="POST" onsubmit="deleteProduct(event)">
@@ -45,19 +72,50 @@
             <button type="submit">Delete Product</button>
         </form>
     </section>
+    
+    <section id="order-list">
+        <h2>Order List</h2>
+        <div class="order-list">
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Order ID</th>
+                        <th>Product Name</th>
+                        <th>Product Ref</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in order_details.values() %}
+                    <tr>
+                        <td>{{ order.user_fname }} {{ order.user_lname }}</td>
+                        <td>{{ order.order_id }}</td>
+                        <td>{{ order.product_name }}</td>
+                        <td>{{ order.product_ref }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <td>{{ order.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
 
     <section id="update-status">
         <h2>Update Order Status</h2>
         <form id="updateStatusForm">
             <label for="order_id">Order ID:</label>
             <input type="text" id="order_id" name="order_id" required>
-
+    
             <label for="status">New Status:</label>
             <select id="status" name="status">
                 <option value="pending">Pending</option>
                 <option value="confirmed">Confirmed</option>
             </select>
-
+    
             <button type="submit">Update Status</button>
         </form>
     </section>

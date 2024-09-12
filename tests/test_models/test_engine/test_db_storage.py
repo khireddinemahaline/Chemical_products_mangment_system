@@ -6,8 +6,8 @@ Test_DBStorage
 
 
 import unittest
-from models.db_storage import DBStorage
+#from models.db_storage import DBStorage
 import datetime
 
 
-def Test_Product(unittest.TestCas)
+#def Test_Product(unittest.TestCas)

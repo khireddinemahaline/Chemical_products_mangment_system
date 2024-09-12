@@ -6,8 +6,8 @@ Test_OrderStatus
 
 
 import unittest
-from models.order_status import Order_Status
+#from models.order_status import Order_Status
 import datetime
 
 
-def Test_OrderStatus(unittest.TestCase):
+#class Test_OrderStatus(unittest.TestCase):

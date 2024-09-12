@@ -26,4 +26,4 @@ class Order(BaseModel, Base):
     user_id = Column(String(60), ForeignKey('users.id', ondelete="CASCADE",
                                             onupdate="CASCADE"),
                      nullable=False)
-    order_status = relationship("Order_status", backref="order", cascade="all, delete-orphan")
+    order_status = relationship("Order_status", backref="order", cascade="all, delete-orphan, save-update", uselist=False)

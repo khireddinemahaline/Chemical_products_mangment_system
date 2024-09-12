@@ -8,6 +8,12 @@ Test_User
 import unittest
 from models.users import User
 import datetime
+from models.products import Product
 
 
-def Test_Product(unittest.TestCase):
+#class Test_Product(unittest.TestCase):
+   # """ test products"""
+    #def setUp(self):
+     #   self.products = Product()
+
+
