@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, session, flash, url_for
 from models import storage, Product, User, Order, Order_status
 from .decorator import role_required
-
+import uuid
 
 main_bp = Blueprint('main', __name__)
 
@@ -20,7 +20,7 @@ def home_product():
     else:
         print("No user ID found in session.")
     products = storage.all(Product).values()
-    return render_template("home.html", products=products, user=user)
+    return render_template("home.html", products=products, user=user, cache_id=uuid.uuid4())
 
 
 @main_bp.route('/order/<string:product_id>')
@@ -31,7 +31,7 @@ def order_page(product_id):
     user_id = session.get('user_id')
     user = storage.get(User, user_id)
     product = storage.get(Product, product_id)
-    return render_template('order_page.html', product_id=product_id,product=product, user=user)
+    return render_template('order_page.html', product_id=product_id,product=product, user=user, cache_id=uuid.uuid4())
 
 
 # the route for the sign in 
@@ -98,4 +98,4 @@ def dashbord_page():
             })
                
 
-    return render_template('dashbord.html', user=user, products=products, order_details=order_details)
+    return render_template('dashbord.html', user=user, products=products, order_details=order_details, cache_id=uuid.uuid4())
