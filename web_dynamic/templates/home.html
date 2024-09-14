@@ -4,7 +4,7 @@
 {% include 'flash.html' %}
 <header>
     <div class="header-left">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}?cacheid={{ cache_id }}" alt="Logo">
     </div>
     <h1>{{ user.first_name }} {{ user.last_name}}</h1>
     <div class="header-right">
@@ -14,7 +14,7 @@
 <div class="grid-container">
     {% for product in products %}
     <div class="card">
-        <img src="{{ url_for('static', filename='images/beaker, glass, 400ml.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='images/beaker, glass, 400ml.jpg') }}?cacheid={{ cache_id }}" alt="">
         <h2>{{ product.name }}</h2>
         <div class="details">
             <span class="label">Stock quantity:</span>

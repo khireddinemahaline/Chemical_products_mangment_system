@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="../static/styles/admin.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/admin.css') }}?cacheid={{ cache_id }}">
 </head>
 <body>
     {% include 'flash.html' %}
@@ -121,7 +121,7 @@
         </form>
     </section>
 
-    <script src="../static/script/remove_products.js"></script>
-    <script src="../static/script/update_status.js"></script>
+    <script src="{{ url_for('static', filename='script/remove_products.js') }}?cacheid={{ cache_id }}"></script>
+    <script src="{{ url_for('static', filename='script/update_status.js') }}?cacheid={{ cache_id }}"></script>
 </body>
 </html>

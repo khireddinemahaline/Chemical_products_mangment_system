@@ -61,7 +61,7 @@ def manager_page():
 
 
 
-    return render_template('admin.html', orders=orders, order_details=order_details_sorted, products=products)
+    return render_template('admin.html', orders=orders, order_details=order_details_sorted, products=products, cache_id=uuid.uuid4())
 
 @admin_bp.route('/products/<string:product_id>', methods=['DELETE'])
 def delete_product(product_id):

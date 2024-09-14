@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, session, flash, url_for, jsonify
 from models import storage, User
+import uuid
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -20,7 +21,7 @@ def register_user():
         storage.save()
         flash('User signUp successfully!', 'success')
         return redirect(url_for('auth.signin'))
-    return render_template('signup.html')
+    return render_template('signup.html', cache_id=uuid.uuid4())
 
 
 @auth_bp.route('/signin', strict_slashes=False, methods=["GET", "POST"])
@@ -50,7 +51,7 @@ def signin():
         return redirect(url_for("auth.signin"))
     
     # If the request method is GET, render the sign-in page
-    return render_template('signin.html')
+    return render_template('signin.html', cache_id=uuid.uuid4())
 
 
 
