@@ -21,6 +21,7 @@ from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt()
 
+
 class User(BaseModel, Base):
     """User Table Data"""
     __tablename__ = 'users'
@@ -31,7 +32,7 @@ class User(BaseModel, Base):
     role = Column(String(128), nullable=False)
     orders = relationship("Order", backref='user',
                           cascade="all, delete, save-update")
-    
+
     @property
     def user_password(self):
         """Return the hashed password"""
@@ -40,12 +41,9 @@ class User(BaseModel, Base):
     @user_password.setter
     def user_password(self, raw_password):
         """Set the password to a hashed version"""
-        self._password = bcrypt.generate_password_hash(raw_password).decode('utf-8')
+        self._password = bcrypt.generate_password_hash(
+                                            raw_password).decode('utf-8')
 
     def check_password(self, raw_password):
         """Check if the raw_password matches the hashed password"""
         return bcrypt.check_password_hash(self._password, raw_password)
-        
-
-
-    

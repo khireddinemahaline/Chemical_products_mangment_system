@@ -1,7 +1,8 @@
-flask
-flask_cors
-flask_bcrypt
-sqlalchemy
-mysqlclient
-python-dotenv
-pep8
+flask=3.0.3
+flask_cors=4.0.1
+flask_bcrypt=1.0.1
+sqlalchemy=2.0.32
+mysqlclient=2.2.4
+python-dotenv=1.0.1
+gunicorn=23.0.0
+pep8=1.7.1

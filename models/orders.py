@@ -19,11 +19,16 @@ from sqlalchemy import event
 from models.order_status import Order_status
 from models.engine.db_storage import DBStorage
 
+
 class Order(BaseModel, Base):
     __tablename__ = 'orders'
     quentity = Column(Integer, default=1, nullable=False)
-    product_id = Column(String(60), ForeignKey('products.id', ondelete="SET NULL"), nullable=True)
+    product_id = Column(String(60), ForeignKey('products.id',
+                                               ondelete="SET NULL"),
+                        nullable=True)
     user_id = Column(String(60), ForeignKey('users.id', ondelete="CASCADE",
                                             onupdate="CASCADE"),
                      nullable=False)
-    order_status = relationship("Order_status", backref="order", cascade="all, delete-orphan, save-update", uselist=False)
+    order_status = relationship("Order_status", backref="order",
+                                cascade="all, delete-orphan,save-update",
+                                uselist=False)
