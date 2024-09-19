@@ -2,7 +2,7 @@ from functools import wraps
 from flask import Blueprint, render_template, request, redirect, session, flash, url_for, jsonify
 from models import storage, Product, User, Order, Order_status
 from .decorator import role_required
-
+import uuid
 admin_bp = Blueprint('admin', __name__)
 
 

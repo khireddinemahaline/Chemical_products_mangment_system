@@ -5,7 +5,7 @@ Manages interactions with a MySQL database using SQLAlchemy.
 Provides methods for CRUD operations and session management.
     __engine : The Engine is responsible for managing the connection
                to the database
-    __session : responsible for all the ORM operations 
+    __session : responsible for all the ORM operations
                 like querying, adding, updating, and deleting records
 """
 import models
@@ -18,7 +18,7 @@ load_dotenv()
 
 
 class DBStorage():
-    """ 
+    """
     Store the data in mysql database using mysql
         - show all objects stored in the database
         - add new object
@@ -29,7 +29,7 @@ class DBStorage():
     """
     __engine = None
     __session = None
-    
+
     def __init__(self):
         """ create engine that will store objects """
         user = getenv('HBNB_MYSQL_USER')
@@ -65,6 +65,7 @@ class DBStorage():
         """add new object to the database"""
         if isinstance(obj, Base):
             self.__session.add(obj)
+
     def save(self):
         """Commit the current transaction."""
         try:
@@ -73,10 +74,12 @@ class DBStorage():
         except Exception as e:
             self.__session.rollback()
             print(f"Failed to commit changes: {e}")
+
     def delete(self, obj):
         """delete an obj stored in the database"""
         if isinstance(obj, Base):
             self.__session.delete(obj)
+
     def reload(self):
         """create the tables and all column in database"""
         Base.metadata.create_all(self.__engine)
@@ -84,6 +87,7 @@ class DBStorage():
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
+
     def close(self):
         """in the end close the session"""
         if self.__session:
@@ -96,8 +100,11 @@ class DBStorage():
         """
         get_dic = self.all(cls)
         for key, value in get_dic.items():
-            if key == str(cls.__name__) + '.' + id:
-                return value
+            if id:
+                if key == str(cls.__name__) + '.' + id:
+                    return value
+            else:
+                return None
         return None
 
     def count(self, cls=None):
@@ -119,5 +126,3 @@ class DBStorage():
             for keys, value in get_dic.items():
                 count = count + 1
             return count
-
-

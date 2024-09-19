@@ -16,6 +16,7 @@ class TestProduct(unittest.TestCase):
     """Set up a fresh instance for each test."""
     def setUp(self):
         self.product = Product(
+            id = 'product1',
             name="Sample Product",
             ref="REF123",
             description="This is a sample product description.",
