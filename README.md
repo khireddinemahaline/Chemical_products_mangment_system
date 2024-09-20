@@ -32,7 +32,7 @@ To run the project locally, follow these steps:
 5. **Set up the database**:  
    Ensure you have a MySQL database running, then configure the `.env` file with your database credentials.
    ```bash
-   cat setup_mysql_dev.sql
+   cat setup_mysql_dev.sql | sudo mysql
    ```
 
 7. **Start the Flask server**:
